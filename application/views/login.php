@@ -22,7 +22,7 @@
                                 <input class="form-control btn btn-primary" type="submit" value="masuk">
                             </form>
                             <center>
-                                <!-- <a href="http://<?= $server ?>modul/registrasi/">registrasi</a> -->
+                                <a href="<?= site_url('registrasi') ?>">registrasi</a>
                             </center>
                         </div>
                 </div>
