@@ -26,12 +26,12 @@ class Login extends CI_Controller {
             'password' => $password
         );
 
-        $admin_auth      = $this->model_user->get_admin($where)->num_rows();
-        $masyarakat_auth = $this->model_user->get_masyarakat($where)->num_rows();
+        $admin_auth      = $this->model_login->get_admin($where)->num_rows();
+        $masyarakat_auth = $this->model_login->get_masyarakat($where)->num_rows();
         
         
         if($admin_auth > 0 ){
-            $auth = $this->model_user->get_admin($where)->row_array();
+            $auth = $this->model_login->get_admin($where)->row_array();
             
             if($auth['level']=='admin')
             {
@@ -62,13 +62,13 @@ class Login extends CI_Controller {
                 );
 
                 $this->session->set_userdata($data_session);
-                redirect(site_url('admin'));
+                redirect(site_url('petugas'));
 
             }
         }
         elseif($masyarakat_auth > 0)
         {
-            $auth = $this->model_user->get_masyarakat($where)->row_array();
+            $auth = $this->model_login->get_masyarakat($where)->row_array();
 
             if ($auth['status'] != 'aktif') {
             	echo '<script>alert("akun tidak aktif")</script>';
@@ -84,7 +84,7 @@ class Login extends CI_Controller {
             );
 
             $this->session->set_userdata($data_session);
-            redirect(site_url('pengaduan'));
+            redirect(site_url('masyarakat'));
 
         }else{
             echo 'salah password';
