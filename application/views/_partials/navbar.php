@@ -7,7 +7,7 @@
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
 		<ul class="navbar-nav ml-auto">
 			<?php 
-			if($this->session->userdata('level') == 'administrator'): 
+			if($this->session->userdata('level') == 'admin'): 
 			?>
 			<li class="nav-item">
 				<a class="btn btn-primary mx-1" href="<?php echo site_url('admin/masyarakat') ?>">Masyarakat</a>
