@@ -29,6 +29,14 @@ class Admin extends CI_Controller {
 		$this->load->view('administrator/admin',$data);	
 	}
 
+	public function petugas()
+	{
+		$data['page_name'] = 'List Petugas';
+
+		$data['petugas']   = $this->model_admin->petugas()->result();
+
+		$this->load->view('administrator/petugas',$data);
+	}
 
 }
 
