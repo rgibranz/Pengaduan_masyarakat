@@ -76,6 +76,24 @@ class Masyarakat extends CI_Controller {
 		
 	}
 
+	public function _deleteImage($id)
+	{
+	    $file = $this->model_masyarakat->get_file($id);
+	    if ($file->foto != "default.jpg") {
+		    $filename = explode(".", $file->foto)[0];
+			return array_map('unlink', glob(FCPATH."upload/images/$filename.*"));
+	    }
+	}
+
+	public function hapus_pengaduan($id)
+	{
+		$where = array('id_pengaduan' => $id);
+
+		$this->_deleteImage($id);
+		$this->model_masyarakat->hapus_pengaduan($where);
+		redirect('masyarakat','refresh');
+	}
+
 
 
 }

@@ -60,7 +60,7 @@
 							</td>
 							<td>
 								<a class="btn btn-primary">edit</a><br>
-								<a class="btn btn-danger">hapus</a>
+								<a href="<?php echo site_url('masyarakat/hapus_pengaduan/').$data->id_pengaduan ?>" class="btn btn-danger">hapus</a>
 
 							</td>
 							

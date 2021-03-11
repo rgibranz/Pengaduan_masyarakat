@@ -42,6 +42,16 @@ class Model_masyarakat extends CI_Model {
 		$this->db->insert('pengaduan',$data);
 	}
 
+	function get_file($id)
+	{
+		return $this->db->where('id_pengaduan',$id)->get('pengaduan')->row();
+	}
+
+	function hapus_pengaduan($where)
+	{
+		$this->db->delete('pengaduan', $where);
+	}
+
 }
 
 /* End of file Model_masyarakat.php */
