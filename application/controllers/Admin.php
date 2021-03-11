@@ -66,6 +66,15 @@ class Admin extends CI_Controller {
 
         redirect(site_url('admin/petugas'));	
 	}
+
+	function hapus_petugas($id)
+    {
+        $where = array('id_petugas' => $id);
+
+        $this->model_admin->hapus_petugas($where);
+
+        redirect('admin/petugas','refresh');
+    }
 }
 
 /* End of file admin.php */

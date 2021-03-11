@@ -37,6 +37,11 @@ class Model_admin extends CI_Model {
 	{
 		$this->db->insert('petugas',$data);
 	}
+
+	function hapus_petugas($where)
+	{
+		$this->db->delete('petugas', $where);
+	}
 }
 
 /* End of file Model_admin.php */

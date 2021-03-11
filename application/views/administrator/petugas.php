@@ -35,8 +35,8 @@
 							<td><?=$data->telp ?></td>
 							<td><?=$data->level ?></td>
 							<td>
-								<a href="" class="btn btn-primary">Edit</a>
-								<a href="" class="btn btn-danger">Hapus</a>
+								<a href="<?= site_url('admin/edit_petugas/'.$data->id_petugas) ?>" class="btn btn-primary">Edit</a>
+								<a href="<?= site_url('admin/hapus_petugas/'.$data->id_petugas) ?>" class="btn btn-danger">Hapus</a>
 							</td>
 						</tr>
 
