@@ -33,6 +33,10 @@ class Model_admin extends CI_Model {
 		return $this->db->where('status', 'nonAktif')->get('masyarakat')->num_rows();
 	}	
 
+	function save_petugas($data)
+	{
+		$this->db->insert('petugas',$data);
+	}
 }
 
 /* End of file Model_admin.php */

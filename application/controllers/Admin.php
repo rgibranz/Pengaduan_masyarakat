@@ -38,6 +38,34 @@ class Admin extends CI_Controller {
 		$this->load->view('administrator/petugas',$data);
 	}
 
+	public function tambah_petugas()
+	{
+		$data['page_name'] = 'Tambah Data Petugas';
+
+		$this->load->view('administrator/tambah_petugas',$data);
+	}
+
+	public function save_petugas()
+	{
+		$nama_petugas = $this->input->post('nama');
+        $username     = $this->input->post('username');
+        $password     = $this->input->post('password');
+        $telp         = $this->input->post('telp');
+        $level        = $this->input->post('level');
+
+        $data = array(
+        	
+            "nama_petugas" => $nama_petugas,
+            "username"     => $username,
+            "password"     => $password,
+            "telp"         => $telp,
+            "level"        => $level
+        );
+
+        $this->model_admin->save_petugas($data);
+
+        redirect(site_url('admin/petugas'));	
+	}
 }
 
 /* End of file admin.php */
