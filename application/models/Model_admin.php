@@ -53,6 +53,12 @@ class Model_admin extends CI_Model {
 		$this->db->where($where);
 		$this->db->update('petugas',$data);
 	}
+
+	function verifikasi_user($where,$data)
+	{
+		$this->db->where($where);
+		$this->db->update('masyarakat',$data);
+	}
 }
 
 /* End of file Model_admin.php */

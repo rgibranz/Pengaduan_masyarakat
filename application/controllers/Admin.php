@@ -65,9 +65,9 @@ class Admin extends CI_Controller {
         $this->model_admin->save_petugas($data);
 
         redirect(site_url('admin/petugas'));	
-	}
+    }
 
-	function hapus_petugas($id)
+    function hapus_petugas($id)
     {
         $where = array('id_petugas' => $id);
 
@@ -106,6 +106,26 @@ class Admin extends CI_Controller {
         $this->model_admin->update_petugas($where,$data);
 
         redirect('admin/petugas','refresh');
+    }
+
+    function masyarakat()
+    {
+
+        $data['page_name']  = 'Masyarakat';
+        $data['masyarakat'] = $this->model_admin->masyarakat()->result();
+
+        $this->load->view('administrator/masyarakat',$data);
+        
+    }
+
+    function verifikasi($nik)
+    {
+        $where = array("nik" => $nik);
+        $data  = array("status" => 'aktif');
+
+        $this->model_admin->verifikasi_user($where,$data);
+
+        redirect(site_url('admin/masyarakat'),'refresh');
     }
 }
 
