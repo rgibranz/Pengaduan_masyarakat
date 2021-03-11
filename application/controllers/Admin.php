@@ -75,6 +75,38 @@ class Admin extends CI_Controller {
 
         redirect('admin/petugas','refresh');
     }
+
+    function edit_petugas($id)
+    {
+        $where = array("id_petugas" => $id);
+        $data['page_name']  = 'edit_petugas';
+        $data['petugas']    = $this->model_admin->get_petugas_by_id($where)->result();
+
+        $this->load->view('administrator/edit_petugas',$data);
+    }
+
+    function update_petugas()
+    {
+        $id_petugas   = $this->input->post('id_petugas');
+        $nama_petugas = $this->input->post('nama_petugas');
+        $username     = $this->input->post('username');
+        $password     = $this->input->post('password');
+        $telp         = $this->input->post('telp');
+        $level        = $this->input->post('level');
+
+        $where = array('id_petugas' => $id_petugas);
+        $data  = array(
+            'nama_petugas' => $nama_petugas,
+            'username'     => $username,
+            'password'     => $password,
+            'telp'         => $telp,
+            'level'        => $level
+        );
+
+        $this->model_admin->update_petugas($where,$data);
+
+        redirect('admin/petugas','refresh');
+    }
 }
 
 /* End of file admin.php */

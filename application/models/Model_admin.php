@@ -42,6 +42,17 @@ class Model_admin extends CI_Model {
 	{
 		$this->db->delete('petugas', $where);
 	}
+
+	function get_petugas_by_id($where)
+	{
+		return $this->db->get_where('petugas',$where);
+	}
+
+	function update_petugas($where,$data)
+	{
+		$this->db->where($where);
+		$this->db->update('petugas',$data);
+	}
 }
 
 /* End of file Model_admin.php */
