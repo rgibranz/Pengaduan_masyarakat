@@ -81,7 +81,7 @@ class Masyarakat extends CI_Controller {
 	    $file = $this->model_masyarakat->get_file($id);
 	    if ($file->foto != "default.jpg") {
 		    $filename = explode(".", $file->foto)[0];
-			return array_map('unlink', glob(FCPATH."upload/images/$filename.*"));
+			return array_map('unlink', glob(FCPATH."assets/upload/images/$filename.*"));
 	    }
 	}
 
