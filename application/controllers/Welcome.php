@@ -20,6 +20,15 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('welcome_message');
+		if ($this->session->userdata('level') == 'admin') {
+			redirect('admin','refresh');
+		}elseif ($this->session->userdata('level') == 'petugas') {
+			redirect('petugas','refresh');
+		}elseif($this->session->userdata('level') == 'masyarakat'){
+			redirect('masyarakat','refresh');
+		}else {
+			redirect('login','refresh');
+		}
+		
 	}
 }
