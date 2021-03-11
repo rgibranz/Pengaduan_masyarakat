@@ -94,6 +94,39 @@ class Masyarakat extends CI_Controller {
 		redirect('masyarakat','refresh');
 	}
 
+	public function edit_pengaduan($id)
+	{
+		$where = array('id_pengaduan'=>$id);
+
+		$data['page_name'] = 'Edit Data Pengaduan';
+
+		$data['pengaduan'] = $this->model_masyarakat->get_pengaduan($where);
+
+		$this->load->view('masyarakat/edit_pengaduan', $data);
+	}
+
+	public function update_pengaduan()
+	{
+		$id  = $this->input->post('id_pengaduan');
+		$isi = $this->input->post('isi');
+
+		if (!empty($_FILES["image"]["name"])) {
+		    $foto = $this->upload();
+		} else {
+		    $foto = $this->input->post('old_image');
+		}
+
+		$data = array(
+			'isi_laporan' => $isi,
+			'foto'        => $foto
+		);
+
+		$where = array('id_pengaduan' => $id);
+
+		$this->model_masyarakat->update_pengaduan($where,$data);
+		redirect('masyarakat','refresh');
+	}
+
 
 
 }
