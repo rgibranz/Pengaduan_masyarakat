@@ -28,6 +28,56 @@ class Masyarakat extends CI_Controller {
 		$this->load->view('masyarakat/utama',$data);
 	}
 
+	public function tulis_pengaduan()
+	{
+		$data['page_name'] = 'Tulis Pengaduan';
+
+		$this->load->view('masyarakat/tulis_pengaduan', $data);
+	}
+
+	public function upload()
+	{
+		$config['upload_path']          = './assets/upload/images/';
+		$config['allowed_types']        = 'gif|jpg|png';
+		$config['file_name']            = uniqid(); 
+		// $config['max_size']             = 100;
+		// $config['max_width']            = 1024;
+		// $config['max_height']           = 768;
+		$config['encrypt_name']			= false;
+		$this->load->library('upload', $config);
+		if ( ! $this->upload->do_upload('image'))
+		{
+			print_r($this->upload->display_errors());
+		}
+		else
+		{
+			return $this->upload->data("file_name");
+		}
+	}
+
+	public function save_pengaduan()
+	{
+		
+
+		$isi  = $this->input->post('isi');		
+		$foto = $this->upload();
+
+		$data = array(
+			'tgl_pengaduan' => date("Y-m-d"),
+			'nik'           => $this->session->userdata('nik'),
+			'isi_laporan'   => $isi,
+			'foto'          => $foto,
+			'status'        => '0'
+		);
+
+		$this->model_masyarakat->save_pengaduan($data);
+
+		redirect('masyarakat','refresh');
+		
+	}
+
+
+
 }
 
 /* End of file Masyarakat.php */

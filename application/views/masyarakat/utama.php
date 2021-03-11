@@ -47,7 +47,7 @@
 							<td><?php echo $data->id_pengaduan?></td>
 							<td><?php echo $data->tgl_pengaduan?></td>
 							<td><?php echo $data->isi_laporan?></td>
-							<td><img src="<?php echo base_url('assets/upload/foto/').$data->foto?>" alt=""></td>
+							<td><img src="<?php echo base_url('assets/upload/images/').$data->foto?>" alt="" width="50"></td>
 							<td>
 								<?php if($data->status == '0'): ?>
 									<button class="btn btn-secondary" disabled>Menunggu</button>
