@@ -75,10 +75,15 @@
 
 	<?php $this->load->view('_partials/script') ?>
 	<script>
-		$(document).ready(function() {
-		    $('#pengaduan').DataTable();
-		} );
 		
+		$(document).ready(function() {
+	    $('#pengaduan').DataTable( {
+	        dom: 'Bfrtip',
+	        buttons: [
+	            'copy', 'csv', 'excel', 'pdf', 'print'
+	        ]
+	    } );
+	} );
 	</script>
 </body>
 </html>
