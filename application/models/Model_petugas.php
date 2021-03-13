@@ -6,7 +6,6 @@ class Model_petugas extends CI_Model {
 	function pengaduan()
 	{
 		return $this->db->get('pengaduan');
-		
 	}
 
 	function blm_di_proses()
@@ -26,6 +25,21 @@ class Model_petugas extends CI_Model {
 		
 		return $this->db->get_where('pengaduan',  array('status' => 'selesai'))->num_rows();
 	}	
+	
+	function get_pengaduan($id_pengaduan)
+	{
+		return $this->db->where('id_pengaduan',$id_pengaduan)->get('pengaduan');
+	}
+
+	function get_tanggapan($id_pengaduan)
+	{
+		return $this->db->where('id_pengaduan',$id_pengaduan)->get('tanggapan');
+	}
+
+	function save_tanggapan($data)
+	{
+		$this->db->insert('tanggapan', $data);
+	}
 
 	
 }

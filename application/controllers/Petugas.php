@@ -26,12 +26,31 @@ class Petugas extends CI_Controller {
 		$this->load->view('petugas/utama', $data);
 	}
 
-	public function tulis_tanggapan()
+	public function lihat_pengaduan($id_pengaduan)
 	{
-		$data['pengaduan'] = $this->model_petugas->pengaduan()->result();
+		$data['pengaduan'] = $this->model_petugas->get_pengaduan($id_pengaduan)->result();
 
-		$this->load->view('petugas/admin')
+		$data['tanggapan'] = $this->model_petugas->get_tanggapan($id_pengaduan)->result();
+
+		$this->load->view('petugas/tulis_tanggapan',$data);
 	}
+
+	public function save_tanggapan()
+	{
+		$id  = $this->input->post('id');
+		$isi = $this->input->post('isi');
+
+		$data = array(
+			'id_pengaduan'  => $id,
+			'tgl_tanggapan' => date("Y-m-d"),
+			'tanggapan'     => $isi,
+			'id_petugas'    => $this->session->userdata('id')
+		);
+
+		$this->model_petugas->save_tanggapan($data);
+
+		redirect('petugas/lihat_pengaduan/'.$id);
+	} 
 
 }
 

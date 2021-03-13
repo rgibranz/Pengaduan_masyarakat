@@ -59,9 +59,7 @@
 								<?php endif ?>
 							</td>
 							<td>
-								<a href="<?php echo site_url('masyarakat/edit_pengaduan/').$data->id_pengaduan ?>"class="btn btn-primary">edit</a><br>
-								<a href="<?php echo site_url('masyarakat/hapus_pengaduan/').$data->id_pengaduan ?>" class="btn btn-danger">hapus</a>
-
+								<a href="<?php echo site_url('petugas/lihat_pengaduan/').$data->id_pengaduan ?>"class="btn btn-primary">lihat</a><br>
 							</td>
 							
 						</tr>
