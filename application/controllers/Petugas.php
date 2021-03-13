@@ -52,6 +52,19 @@ class Petugas extends CI_Controller {
 		redirect('petugas/lihat_pengaduan/'.$id);
 	} 
 
+	public function proses_pengaduan($id)
+	{
+		$this->model_petugas->proses_pengaduan($id);
+
+		redirect('petugas','refresh');
+	}
+
+	public function selesai_pengaduan($id)
+	{
+		$this->model_petugas->selesai_pengaduan($id);
+
+		redirect('petugas','refresh');
+	}
 }
 
 /* End of file Petugas.php */

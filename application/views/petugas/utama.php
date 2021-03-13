@@ -50,9 +50,9 @@
 							<td><img src="<?php echo base_url('assets/upload/images/').$data->foto?>" alt="" width="50"></td>
 							<td>
 								<?php if($data->status == '0'): ?>
-									<a href="<?php echo site_url('petugas/lihat_pengaduan/').$data->id_pengaduan ?>" class="btn btn-secondary">Menunggu</a>
+									<a href="<?php echo site_url('petugas/proses_pengaduan/').$data->id_pengaduan ?>" class="btn btn-secondary">Menunggu</a>
 								<?php elseif($data->status == 'proses'): ?>
-									<a href="<?php echo site_url('petugas/lihat_pengaduan/').$data->id_pengaduan ?>" class="btn btn-primary" disabled>Diproses</a>
+									<a href="<?php echo site_url('petugas/selesai_pengaduan/').$data->id_pengaduan ?>" class="btn btn-primary" disabled>Diproses</a>
 								<?php elseif($data->status == 'selesai'): ?>
 									<button class="btn btn-success" disabled>Selesai</button>
 

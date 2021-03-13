@@ -41,6 +41,19 @@ class Model_petugas extends CI_Model {
 		$this->db->insert('tanggapan', $data);
 	}
 
+	function proses_pengaduan($id)
+	{
+		$data = array('status' => 'proses');
+
+		$this->db->where('id_pengaduan',$id)->update('pengaduan', $data);
+	}
+
+	function selesai_pengaduan($id)
+	{
+		$data = array('status' => 'selesai');
+
+		$this->db->where('id_pengaduan',$id)->update('pengaduan', $data);
+	}
 	
 }
 
