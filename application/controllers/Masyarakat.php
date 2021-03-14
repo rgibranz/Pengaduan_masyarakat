@@ -127,8 +127,15 @@ class Masyarakat extends CI_Controller {
 		redirect('masyarakat','refresh');
 	}
 
+	public function lihat_pengaduan($id_pengaduan)
+	{
+		$data['page_name'] = 'Lihat Pengaduan';
+		$data['pengaduan'] = $this->model_masyarakat->pengaduan($id_pengaduan)->result();
 
+		$data['tanggapan'] = $this->model_masyarakat->get_tanggapan($id_pengaduan)->result();
 
+		$this->load->view('masyarakat/lihat_pengaduan',$data);
+	}
 }
 
 /* End of file Masyarakat.php */

@@ -62,6 +62,16 @@ class Model_masyarakat extends CI_Model {
 		$this->db->where($where);
 		$this->db->update('pengaduan',$data);
 	}
+
+	function pengaduan($id_pengaduan)
+	{
+		return $this->db->where('id_pengaduan',$id_pengaduan)->get('pengaduan');
+	}
+
+	function get_tanggapan($id_pengaduan)
+	{
+		return $this->db->where('id_pengaduan',$id_pengaduan)->get('tanggapan');
+	}
 }
 
 /* End of file Model_masyarakat.php */
