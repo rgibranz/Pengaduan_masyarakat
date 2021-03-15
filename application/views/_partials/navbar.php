@@ -23,12 +23,9 @@
 			<?php 
 			elseif($this->session->userdata('level') == 'petugas') :
 			?>
-			<li class="nav-item">
-				<a class="btn btn-primary mx-1" href="#">Masyarakat</a>
-			</li>
 
 			<li>
-				<a class="btn btn-primary mx-1"href="">Pengaduan Masyarakat</a>
+				<a class="btn btn-primary mx-1"href="<?php echo site_url('Petugas') ?>">Pengaduan</a>
 			</li>
 			<li>
 				<a class="btn btn-danger mx-1" href="<?php echo site_url('login/logout') ?>">logout</a>
