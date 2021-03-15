@@ -27,7 +27,8 @@ class Petugas extends CI_Controller {
 	}
 
 	public function lihat_pengaduan($id_pengaduan)
-	{
+	{	
+		$data['page_name'] = 'Tulis Pengaduan';
 		$data['pengaduan'] = $this->model_petugas->get_pengaduan($id_pengaduan)->result();
 
 		$data['tanggapan'] = $this->model_petugas->get_tanggapan($id_pengaduan)->result();
