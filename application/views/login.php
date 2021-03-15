@@ -9,7 +9,7 @@
             <div class="col-lg-3 mx-auto">
                 <div class="card mt-5">
                         <div class="card-body">
-                        <h1 class="text-center">.:LOGIN ADMIN:.</h1>
+                        <h1 class="text-center">Silahkan Login</h1>
                         <form action="<?php echo site_url('login/auth') ?>" method="post">
                         <div class="form-group">
                                 <label for="username">Username</label>
