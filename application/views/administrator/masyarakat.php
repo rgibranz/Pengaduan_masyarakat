@@ -33,9 +33,7 @@
 						</tr>
 					</thead>
 					<tbody>
-					<?php  
-						foreach ($masyarakat as $data):
-					?>
+					<?php foreach ($masyarakat as $data):?>
 						<tr>
 							<td><?php echo $data->nik ?></td>
 							<td><?php echo $data->nama ?></td>
@@ -81,9 +79,13 @@
 	<?php $this->load->view('_partials/script') ?>
 	<script>
 		$(document).ready(function() {
-		    $('#masyarakat').DataTable();
+		    $('#petugas').DataTable( {
+		        dom: 'Bfrtip',
+		        buttons: [
+		            'copy', 'csv', 'excel', 'pdf', 'print'
+		        ]
+		    } );
 		} );
-		
 	</script>
 
 </body>

@@ -10,7 +10,7 @@
 	
 	<div class="container">
 		<div class="row my-5">
-			<div class="col-lg-8 mx-auto text-center">
+			<div class="col-lg-12 mx-auto text-center">
 				<?php foreach ($pengaduan as $data): ?>
 				<img src="<?php echo base_url('assets/upload/images/').$data->foto; ?>" alt="..." width="70%" class="mx-auto">
 				<?php $id = $data->id_pengaduan; ?>
@@ -28,27 +28,30 @@
 			</div>	
 		</div>
 
+		<?php foreach ($tanggapan as $data): ?>
 		<div class="row my-5">
-			<div class="col-lg-8 mx-auto text-center">
-				<?php foreach ($tanggapan as $data): ?>
-				<!-- <img src="<?php echo base_url('assets/upload/images/').$data->foto; ?>" alt="..." width="70%" class="mx-auto"> -->
+			<div class="col-lg-12 mx-auto">
 				
-				<div>
-					<h4>tanggapan oleh <?php echo $data->id_petugas ?> </h4>
-					<p><?php echo $data->tgl_tanggapan ?></p>
+				
+
+				<div class="card">
+				  
+				  <div class="card-header">
+				    <h6>Tanggapan</h6>
+				    <span><?php echo $data->tgl_tanggapan ?></span>
+				  </div>
+				  <div class="card-body">
+				    <p class="card-text"><?php echo $data->tanggapan ?></p>
+				  </div>
 				</div>
 
-				<div>
-					<p>
-						<?php echo $data->tanggapan ?>
-					</p>
-				</div>
-				<?php endforeach ?>
+				
 			</div>	
 		</div>
+		<?php endforeach ?>
 
 		<div class="row">
-			<div class="col-lg-8 mx-auto">
+			<div class="col-lg-12 mx-auto">
 				<center>
 					<h3>Tulis Tanggapan</h3>
 				</center>

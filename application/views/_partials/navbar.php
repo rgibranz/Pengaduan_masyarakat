@@ -33,7 +33,9 @@
 			<?php 
 			elseif($this->session->userdata('level') == 'masyarakat') :
 			?>
-
+			<li>
+				<a class="btn btn-primary mx-1" href="<?php echo site_url('masyarakat') ?>">Pengaduan</a>
+			</li>
 			<li>
 				<a class="btn btn-primary mx-1" href="<?php echo site_url('masyarakat/tulis_pengaduan') ?>">Tulis Pengaduan</a>
 			</li>
