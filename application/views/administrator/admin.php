@@ -87,6 +87,11 @@
 
     <?php $this->load->view('_partials/script.php') ?>
     
+    <?php if ($this->session->flashdata('status') == 'login'): ?>
+    <script>
+        swal("Anda Telah Login", "", "success");
+    </script>
+    <?php endif ?>
 
 </body>
 

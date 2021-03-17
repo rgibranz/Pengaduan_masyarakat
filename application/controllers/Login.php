@@ -46,6 +46,7 @@ class Login extends CI_Controller {
                 );
 
                 $this->session->set_userdata($data_session);
+                $this->session->set_flashdata('status', 'login');
                 redirect(site_url('admin'));
 
             }
@@ -62,8 +63,8 @@ class Login extends CI_Controller {
                 );
 
                 $this->session->set_userdata($data_session);
+                $this->session->set_flashdata('status', 'login');
                 redirect(site_url('petugas'));
-
             }
         }
         elseif($masyarakat_auth > 0)
@@ -84,6 +85,7 @@ class Login extends CI_Controller {
             );
 
             $this->session->set_userdata($data_session);
+            $this->session->set_flashdata('status', 'login');
             redirect(site_url('masyarakat'));
 
         }else{
@@ -93,6 +95,7 @@ class Login extends CI_Controller {
 
     public function logout()
     {
+        $this->session->set_flashdata('status', 'logout');
         $this->session->sess_destroy();
         redirect(site_url('login'));
     }  
