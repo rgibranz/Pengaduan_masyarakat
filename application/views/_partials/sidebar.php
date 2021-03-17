@@ -56,11 +56,11 @@
 
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
-            <a class="nav-link" href="<?php echo site_url('masyarakat') ?>">">Pengaduan</a>
+            <a class="nav-link" href="<?php echo site_url('masyarakat') ?>">Pengaduan</a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="<?php echo site_url('masyarakat/tulis_pengaduan') ?>">">Tulis Pengaduan</a>
+            <a class="nav-link" href="<?php echo site_url('masyarakat/tulis_pengaduan') ?>">Tulis Pengaduan</a>
         </li>
 
         <li class="nav-item">
